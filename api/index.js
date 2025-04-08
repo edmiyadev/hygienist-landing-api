@@ -12,20 +12,11 @@ app.get("/", (req, res) => {
   res.status(200).json({
     status: "ok",
     message: "API is running correctly",
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
-// Hello endpoint para pruebas
-app.get("/hello", (req, res) => {
-  res.status(200).json({
-    status: "ok",
-    message: "API is running correctly",
-    timestamp: new Date().toISOString()
-  });
-});
-
-const resend = new Resend("re_E4wFpiXY_VkictX5j5T4nwtQmDRVQ9qWq");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Endpoint para enviar email (comentado por ahora)
 app.post("/send-email", async (req, res) => {
@@ -45,7 +36,7 @@ app.post("/send-email", async (req, res) => {
   });
 
   if (error) {
-    res.status(400).json({error});
+    res.status(400).json({ error });
   } else {
     res.status(200).json({ data });
   }
@@ -53,8 +44,8 @@ app.post("/send-email", async (req, res) => {
 
 // Para desarrollo local
 app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-  });
+  console.log("Server is running on port 3000");
+});
 
 // Exportación para Vercel
 export default app;
