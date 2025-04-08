@@ -7,6 +7,15 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+// Add a test endpoint to verify API is working
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).json({
+    status: "ok",
+    message: "API is running correctly",
+    timestamp: new Date().toISOString()
+  });
+});
+
 const resend = new Resend("re_E4wFpiXY_VkictX5j5T4nwtQmDRVQ9qWq");
 
 app.post("/send-email", async (req, res) => {
