@@ -43,6 +43,6 @@ app.post("/send-email", async (req, res) => {
   console.log(req);
 });
 
-app.listen(3002, () => {
-  console.log("Listening on http://localhost:3002");
+app.listen(3000, () => {
+  console.log("Listening on http://localhost:3000");
 });
