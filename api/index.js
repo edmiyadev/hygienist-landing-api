@@ -23,7 +23,7 @@ app.post("/send-email", async (req, res) => {
   const { name, phone, email, message } = req.body;
 
   const { data, error } = await resend.emails.send({
-    from: "Acme <onboarding@resend.dev>",
+    from: "Web <no-reply@edmiya.dev>",
     to: ["infantekatherine97@gmail.com"],
     subject: "Mensaje de contacto desde la web",
     html: `
